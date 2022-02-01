@@ -1,11 +1,16 @@
 import axios from 'axios';
 
-//옷 전체 가져오기
 function getTest(){
-    console.log('api');
     const url = 'http://localhost:3000/'
     return axios.get(url);
 }
 
+function getLap(){
+    console.log('api');
+    const url = 'http://localhost:3000/crudtest'
+    return axios.post(url);
+}
 
-export { getTest };
+
+
+export { getTest, getLap };

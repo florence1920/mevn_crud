@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style scoped>
-  .hello {padding: 30px;}
   .boxWrap {overflow: hidden; margin: 20px 0;  }
   .boxWrap li {float: left; margin: 0 20px 0 0; transition: 0.4s;}
   .box { padding:0 0 0 1%; width: 230px; height: 100px; line-height: 100px; background: #42b983; color: rgb(202, 202, 202); font-weight: bold; border-radius: 3px; cursor: pointer;}
