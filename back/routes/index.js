@@ -38,4 +38,41 @@ router.post('/crudtest', async(req, res, next)=> {
   }
 });
 
+// fetch("https://lucia91.cafe24api.com/api/v2/oauth/authorize?response_type=code&client_id=Jp52IFSMFJpmbjUIxUhkvC&state=omg&redirect_uri=https://lucia91.cafe24.com/category/test/24/&scope=mall.read_product",
+//     {
+//         method: 'GET',
+//         headers: {
+//             'Authorization': 'Bearer vA1S02vxL9EkLRbfNeGPlB',
+//             'X-Cafe24-Api-Version': '2021-12-01',
+//             'Content-Type': 'application/json',
+//             'Access-Control-Allow-Origin': '*'
+//         },
+//         mode: 'cors',
+//         credentials: "same-origin"
+//     })
+//     .then(resposnse => response.json())
+//     .then(myJson => {
+//         console.log();
+//     })
+
+router.get('/crudtest', async(req, res, next)=> {
+  try {
+    const url = 'https://lucia91.cafe24api.com/api/v2/admin/products';
+    const headers =  {
+      'Authorization': 'Bearer F5DeJAYnM6GfiPBA7kt3EP',
+      'X-Cafe24-Api-Version': '2021-12-01',
+      'Content-Type': 'application/json',
+    };
+    const result = await axios.get(url,{
+      headers:headers
+    })
+    console.log(result);
+    //프론트로 다시 보냄
+    res.send(result.data);
+    
+  } catch (error) {
+    console.log(error);
+    return res.send(error);
+  }
+});
 module.exports = router;

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getTest, getLap } from '@/api/index.js';
+import { getTest, getLap, getCafe } from '@/api/index.js';
 
 Vue.use(Vuex)
 
@@ -9,7 +9,10 @@ export default new Vuex.Store({
     axios_try : '',
     lap :{
 
-    }
+    },
+    products:[
+
+    ]
   },
   mutations: {
     SET_AXIOS(state, response){
@@ -19,6 +22,10 @@ export default new Vuex.Store({
     },
     SET_OPENLAP(state, response){
       state.lap = response;
+    },
+    SET_CAFE24(state, response){
+      state.products = response.products;
+      console.log(response);
     }
   },
   actions: {
@@ -32,7 +39,12 @@ export default new Vuex.Store({
       const response = await getLap();
       console.log(response);
       context.commit('SET_OPENLAP' , response.data);
-    }
+    },
+    async GET_CAFE(context){
+      const response =  await getCafe();
+      console.log(response);
+      context.commit('SET_CAFE24' , response.data);
+    },
   },
   modules: {
   }

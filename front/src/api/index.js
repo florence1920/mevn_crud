@@ -11,6 +11,10 @@ function getLap(){
     return axios.post(url);
 }
 
+function getCafe(){
+    const url = 'http://localhost:3000/crudtest'
+    return axios.get(url);
+}
 
 
-export { getTest, getLap };
+export { getTest, getLap, getCafe};
